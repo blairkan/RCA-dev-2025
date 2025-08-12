@@ -34,13 +34,13 @@ fprintf('Selected %d subjects and %d conditions for training... \n',nSubjects,nC
 sumXX=zeros(nCond,nSubjects,nElectrodes,nElectrodes);sumYY=zeros(nCond,nSubjects,nElectrodes,nElectrodes);sumXY=zeros(nCond,nSubjects,nElectrodes,nElectrodes);
 nPointsInXX=zeros(nCond,nSubjects,nElectrodes,nElectrodes);nPointsInYY=zeros(nCond,nSubjects,nElectrodes,nElectrodes);nPointsInXY=zeros(nCond,nSubjects,nElectrodes,nElectrodes);
 
-try
-    matlabpool
-    closePool=1;
-catch
-    parpool
-    closePool=0;
-end
+% try
+%     matlabpool
+%     closePool=1;
+% catch
+%     parpool
+%     closePool=0;
+% end
 for cond=1:nCond
     for subj=1:nSubjects
         fprintf('Computing covariances for subject %d and condition %d... \n',subjRange(subj),condRange(cond));
@@ -111,11 +111,11 @@ end
 sumXX=squeeze(sumXX); sumYY=squeeze(sumYY); sumXY=squeeze(sumXY);
 nPointsInXX=squeeze(nPointsInXX); nPointsInYY=squeeze(nPointsInYY);  nPointsInXY=squeeze(nPointsInXY);
 
-if closePool
-    matlabpool close
-else
-    delete(gcp('nocreate'));
-end
+% if closePool
+%     matlabpool close
+% else
+%     delete(gcp('nocreate'));
+% end
 
 
 
