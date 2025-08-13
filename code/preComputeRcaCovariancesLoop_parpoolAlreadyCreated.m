@@ -54,7 +54,7 @@ for cond=1:nCond
         nPairs=size(pindx,1);
         
         
-        if nTrials>=30
+        if nTrials>=30 %% <<< Edit this value to specify when to do loop vs vectorize!
 
             %% compute means
             thisVolume=permute(thisVolume,[2 1 3]); % electrode x sample x trials
